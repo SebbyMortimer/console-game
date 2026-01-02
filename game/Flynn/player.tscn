@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bayggrbrmq2vf"]
+
+[ext_resource type="PackedScene" uid="uid://cx6h3gcilobo2" path="res://Flynn/flynn.glb" id="1_ad76b"]
+[ext_resource type="Script" uid="uid://cok285klfgsh8" path="res://Flynn/player.gd" id="1_k0m6d"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_huiy2"]
+radius = 0.4
+height = 1.7
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_k0m6d")
+
+[node name="flynn" parent="." instance=ExtResource("1_ad76b")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
+shape = SubResource("CapsuleShape3D_huiy2")
+
+[node name="CameraRotatePoint" type="Node3D" parent="."]
+top_level = true
+
+[node name="Camera3D" type="Camera3D" parent="CameraRotatePoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 3)
