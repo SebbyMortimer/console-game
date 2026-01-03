@@ -15,3 +15,7 @@ I switched the game over to using the compatibility renderer in advance of getti
 Image taken moments before disaster lol:
 
 <img width="1150" height="646" alt="image" src="https://github.com/user-attachments/assets/684fc75b-d4ca-4b64-a769-29814b2c82cb" />
+
+### Day 3
+
+I started off today by making the target be affected by light so now it looks much more like it's part of the game. I eventually got a fix for the particles spawning in black which was to use GPU particles instead of CPU particles (I think CPU particles are a bit bugged and less of a priority for the devs, which is fair enough as they only have so much time) so I just need to hope the pi can handle it - although there aren't any complex particles so hopefully it should be fine. I also added chocolate bubbles to the chocolate ocean that bubble up and the meteors can now only strike the circle island instead of an invisible square shape around it. I did end up running out of time today unfortunately so I wasn't able to create more natural disasters or make some sort of building for the island, but I did start working on the round system so that I can have different disasters each round and they only last for a certain amount of time. Tomorrow I'm likely to be busy as well so I might not get much done until day 5.

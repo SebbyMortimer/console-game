@@ -1,0 +1,81 @@
+[gd_scene load_steps=14 format=3 uid="uid://b43owxhir6y5c"]
+
+[ext_resource type="Script" uid="uid://b0drn6njvaq88" path="res://meteor/meteor.gd" id="1_gt2qx"]
+[ext_resource type="Texture2D" uid="uid://cvbqpeia0b7ma" path="res://meteor/target.png" id="2_0bbng"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cbx31"]
+albedo_color = Color(0.32642847, 0.15379292, 0.07649278, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_cbx31"]
+material = SubResource("StandardMaterial3D_cbx31")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_x8fbi"]
+
+[sub_resource type="Gradient" id="Gradient_ktgx5"]
+offsets = PackedFloat32Array(0.3, 1)
+colors = PackedColorArray(0.9997569, 0, 0.035197634, 1, 1, 1, 0.3137255, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_pwunn"]
+gradient = SubResource("Gradient_ktgx5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_biv8x"]
+gravity = Vector3(0, 10, 0)
+color = Color(1.8247963, 1.8247963, 1.8247963, 1)
+color_ramp = SubResource("GradientTexture1D_pwunn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x8fbi"]
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_41u45"]
+material = SubResource("StandardMaterial3D_x8fbi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pwunn"]
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 30.0
+initial_velocity_max = 30.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pwunn"]
+cull_mode = 2
+shading_mode = 0
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_pwunn"]
+material = SubResource("StandardMaterial3D_pwunn")
+
+[node name="Ball" type="RigidBody3D"]
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_gt2qx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_cbx31")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_x8fbi")
+
+[node name="Fire" type="GPUParticles3D" parent="."]
+cast_shadow = 0
+fixed_fps = 0
+process_material = SubResource("ParticleProcessMaterial_biv8x")
+draw_pass_1 = SubResource("QuadMesh_41u45")
+
+[node name="Explosion" type="GPUParticles3D" parent="."]
+cast_shadow = 0
+emitting = false
+amount = 20
+lifetime = 0.1
+one_shot = true
+fixed_fps = 0
+process_material = SubResource("ParticleProcessMaterial_pwunn")
+draw_pass_1 = SubResource("QuadMesh_pwunn")
+
+[node name="Target" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+top_level = true
+shaded = true
+texture = ExtResource("2_0bbng")

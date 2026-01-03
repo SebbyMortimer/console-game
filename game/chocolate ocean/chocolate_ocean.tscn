@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvaubni24owcf"]
+
+[ext_resource type="Script" uid="uid://teymjsn1m3sj" path="res://chocolate ocean/chocolate_ocean.gd" id="1_0ejjh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2yge"]
+albedo_color = Color(0.34567258, 0.12963974, 0.032746237, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1bvp3"]
+material = SubResource("StandardMaterial3D_h2yge")
+size = Vector2(100, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0xm2m"]
+size = Vector3(100, 1, 100)
+
+[node name="ChocolateOcean" type="StaticBody3D"]
+script = ExtResource("1_0ejjh")
+
+[node name="BubbleTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_1bvp3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+visible = false
+shape = SubResource("BoxShape3D_0xm2m")
+
+[connection signal="timeout" from="BubbleTimer" to="." method="_on_bubble_timer_timeout"]
