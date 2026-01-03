@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b27w15ga2whb3"
+path="res://.godot/imported/ahh ah.ogg-0ca3feec52987e0176d02c07dea10173.oggvorbisstr"
+
+[deps]
+
+source_file="res://voicelines/ahh ah.ogg"
+dest_files=["res://.godot/imported/ahh ah.ogg-0ca3feec52987e0176d02c07dea10173.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

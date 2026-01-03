@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://tv0ja2anw7vc"
+path="res://.godot/imported/that was beautiful.ogg-5b955663f94b736131f862a99e9c5ed8.oggvorbisstr"
+
+[deps]
+
+source_file="res://voicelines/that was beautiful.ogg"
+dest_files=["res://.godot/imported/that was beautiful.ogg-5b955663f94b736131f862a99e9c5ed8.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

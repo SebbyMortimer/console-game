@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c2cmhm4m6ha1t"
+path="res://.godot/imported/hey watch it.ogg-c00b80284ad14b9598d63c940f7d7651.oggvorbisstr"
+
+[deps]
+
+source_file="res://voicelines/hey watch it.ogg"
+dest_files=["res://.godot/imported/hey watch it.ogg-c00b80284ad14b9598d63c940f7d7651.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

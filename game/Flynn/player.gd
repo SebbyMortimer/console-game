@@ -2,7 +2,8 @@ extends CharacterBody3D
 
 
 const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+const JUMP_VELOCITY = 10
+var push_force = 1.0
 
 @onready var cameraRotatePoint = $CameraRotatePoint
 
@@ -12,7 +13,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	cameraRotatePoint.position = position
+	cameraRotatePoint.position = position + Vector3(0, 1.5, 0)
 	# manually update position as I enabled top level to disconnect from the players rotation
 
 
@@ -40,6 +41,11 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	
 	move_and_slide()
+	
+	for i in get_slide_collision_count():
+		var c = get_slide_collision(i)
+		if c.get_collider() is RigidBody3D:
+			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
 
 
 func _unhandled_input(event: InputEvent) -> void:

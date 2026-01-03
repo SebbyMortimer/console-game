@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bcs5nwl4j6tq"]
+[gd_scene load_steps=12 format=3 uid="uid://bcs5nwl4j6tq"]
 
+[ext_resource type="Script" uid="uid://deug42pt650s5" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://bayggrbrmq2vf" path="res://Flynn/player.tscn" id="1_ig7tw"]
-[ext_resource type="Script" uid="uid://cok285klfgsh8" path="res://Flynn/player.gd" id="2_0xm2m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
+sky_top_color = Color(0.14877829, 0.4577273, 0.7604781, 1)
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 
@@ -27,7 +28,22 @@ bottom_radius = 10.0
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_h2yge"]
 radius = 10.0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2yge"]
+albedo_color = Color(0.34567258, 0.12963974, 0.032746237, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1bvp3"]
+material = SubResource("StandardMaterial3D_h2yge")
+size = Vector2(100, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0xm2m"]
+size = Vector3(100, 1, 100)
+
 [node name="Main" type="Node3D"]
+script = ExtResource("1_0xm2m")
+
+[node name="RoundTimer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_h2yge")
@@ -38,13 +54,24 @@ shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.941619, 0)
-script = ExtResource("2_0xm2m")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="Ground" type="StaticBody3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
 mesh = SubResource("CylinderMesh_0xm2m")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
 visible = false
 shape = SubResource("CylinderShape3D_h2yge")
+
+[node name="ChocolateOcean" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ChocolateOcean"]
+mesh = SubResource("PlaneMesh_1bvp3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ChocolateOcean"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+visible = false
+shape = SubResource("BoxShape3D_0xm2m")
+
+[connection signal="timeout" from="RoundTimer" to="." method="_on_round_timer_timeout"]
