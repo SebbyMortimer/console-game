@@ -24,3 +24,8 @@ I started off today by making the target be affected by light so now it looks mu
 |---|---|
 |<img width="1148" height="645" alt="image" src="https://github.com/user-attachments/assets/213b7a71-a5a5-4c2b-9ffe-ea370dcc8c78" />|<img width="1148" height="644" alt="image" src="https://github.com/user-attachments/assets/cf5a7108-b43f-45fe-a8df-c4aa5fd3503c" />|
 
+### Day 4
+
+Just like I thought, I wasn't able to get very much done today. However, I did manage to start the UI, for example I worked on a little dialog box with Flynn's picture and imported a font to go alongside it and I also created a very primitive UI for the round which will eventually tell you what disaster is currently happening or about to happen and what to do to best avoid it. Although I wasn't physically working on the game a lot today, I was thinking about how I was going to model the maps since they will get destroyed by the disasters. I think I'll model the individual static bodies for things like walls, doors, windows and the like for performance and then replace them during gameplay with rigid bodies when they get hit by a disaster to ensure the console can handle the physics.
+
+<img width="1148" height="646" alt="image" src="https://github.com/user-attachments/assets/471de11d-6bcf-4958-865d-2856f92b97ff" />
