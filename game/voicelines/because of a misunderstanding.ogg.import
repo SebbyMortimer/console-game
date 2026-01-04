@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://iq4mk1va5obd"
+path="res://.godot/imported/because of a misunderstanding.ogg-12690d73ba7b761517a824a0b94b92e8.oggvorbisstr"
+
+[deps]
+
+source_file="res://voicelines/because of a misunderstanding.ogg"
+dest_files=["res://.godot/imported/because of a misunderstanding.ogg-12690d73ba7b761517a824a0b94b92e8.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

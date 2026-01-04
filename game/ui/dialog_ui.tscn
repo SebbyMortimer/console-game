@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1gygufpe422r"]
+
+[ext_resource type="Texture2D" uid="uid://07rc38n7rtg4" path="res://ui/FlynnSGicon.png" id="1_ldwrq"]
+[ext_resource type="FontFile" uid="uid://dq4rhitj6bp2o" path="res://Markin LT Regular Bold.ttf" id="2_5unul"]
+
+[node name="DialogUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -100.0
+offset_right = 300.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_ldwrq")
+expand_mode = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("2_5unul")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[color=yellow]Flynn:[/color] Because of a 'misunderstanding', I'm not really allowed to set foot on this island... Heh, it's a long story."
+scroll_active = false

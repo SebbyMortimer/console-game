@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b43owxhir6y5c"]
+[gd_scene load_steps=15 format=3 uid="uid://b43owxhir6y5c"]
 
 [ext_resource type="Script" uid="uid://b0drn6njvaq88" path="res://meteor/meteor.gd" id="1_gt2qx"]
 [ext_resource type="Texture2D" uid="uid://cvbqpeia0b7ma" path="res://meteor/target.png" id="2_0bbng"]
@@ -47,6 +47,10 @@ billboard_mode = 1
 [sub_resource type="QuadMesh" id="QuadMesh_pwunn"]
 material = SubResource("StandardMaterial3D_pwunn")
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_gt2qx"]
+height = 1.0
+radius = 1.5
+
 [node name="Ball" type="RigidBody3D"]
 contact_monitor = true
 max_contacts_reported = 1
@@ -79,3 +83,10 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0
 top_level = true
 shaded = true
 texture = ExtResource("2_0bbng")
+
+[node name="Area3D" type="Area3D" parent="Target"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Target/Area3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -0.5)
+visible = false
+shape = SubResource("CylinderShape3D_gt2qx")
