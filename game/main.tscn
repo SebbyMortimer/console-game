@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bcs5nwl4j6tq"]
+[gd_scene load_steps=14 format=3 uid="uid://bcs5nwl4j6tq"]
 
 [ext_resource type="Script" uid="uid://deug42pt650s5" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://bayggrbrmq2vf" path="res://Flynn/player.tscn" id="1_ig7tw"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bb7rfbykurvxj" path="res://ui/round_ui.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://c1gygufpe422r" path="res://ui/dialog_ui.tscn" id="5_7mycd"]
 [ext_resource type="AudioStream" uid="uid://c2cmhm4m6ha1t" path="res://voicelines/hey watch it.ogg" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://d6jbsjucnbrk" path="res://maps/tent-test/tent-test.tscn" id="7_272bh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
 sky_top_color = Color(0.14877829, 0.4577273, 0.7604781, 1)
@@ -21,11 +22,11 @@ sky = SubResource("Sky_0xm2m")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xm2m"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5vw27"]
 albedo_color = Color(0, 0.47940224, 0.21827772, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_0xm2m"]
-material = SubResource("StandardMaterial3D_0xm2m")
+material = SubResource("StandardMaterial3D_5vw27")
 top_radius = 10.0
 bottom_radius = 10.0
 
@@ -68,5 +69,8 @@ shape = SubResource("CylinderShape3D_h2yge")
 
 [node name="Voiceline" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_lquwl")
+
+[node name="Tent" parent="." instance=ExtResource("7_272bh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7599587, 1.2808077, -4.482545)
 
 [connection signal="timeout" from="RoundTimer" to="." method="_on_round_timer_timeout"]

@@ -51,7 +51,7 @@ material = SubResource("StandardMaterial3D_pwunn")
 height = 1.0
 radius = 1.5
 
-[node name="Ball" type="RigidBody3D"]
+[node name="Meteor" type="RigidBody3D"]
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_gt2qx")

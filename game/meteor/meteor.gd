@@ -2,7 +2,7 @@ extends RigidBody3D
 
 
 func _on_body_entered(body):
-	if body is StaticBody3D or body is CharacterBody3D:
+	if body is StaticBody3D or body is CharacterBody3D: # if it hits the ground, ocean or the player
 		freeze = true
 		$MeshInstance3D.hide()
 		$CollisionShape3D.set_deferred("disabled", true)
@@ -14,6 +14,10 @@ func _on_body_entered(body):
 			if overlapping_body is CharacterBody3D:
 				print("Hit player")
 				get_node("/root/Main/Voiceline").play()
+			elif overlapping_body is RigidBody3D: # if it's in the blast radius, unfreeze the body
+				overlapping_body.freeze = false
 		
 		await get_tree().create_timer(1.0).timeout
 		queue_free()
+	elif body is RigidBody3D: # if it's a direct hit, unfreeze the body
+		body.freeze = false
