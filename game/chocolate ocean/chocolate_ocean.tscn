@@ -24,7 +24,6 @@ mesh = SubResource("PlaneMesh_1bvp3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-visible = false
 shape = SubResource("BoxShape3D_0xm2m")
 
 [connection signal="timeout" from="BubbleTimer" to="." method="_on_bubble_timer_timeout"]

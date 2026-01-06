@@ -1,16 +1,74 @@
 extends Node3D
 
-@export var meteor: PackedScene = preload("res://meteor/meteor.tscn")
+const tent: PackedScene = preload("res://maps/tent/tent.tscn")
+
+const meteor_scene: PackedScene = preload("res://meteor/meteor.tscn")
+const tornado_scene: PackedScene = preload("res://tornado/tornado.tscn")
+@onready var video: VideoStreamPlayer = $CanvasLayer/VideoStreamPlayer
+
+@onready var round_ui: Control = $CanvasLayer/RoundUI
+@onready var warning_label: Label = $CanvasLayer/RoundUI/Disaster/MarginContainer/VBoxContainer/CenterContainer/WarningLabel
+@onready var description_label: Label = $CanvasLayer/RoundUI/Disaster/MarginContainer/VBoxContainer/CenterContainer2/DescriptionLabel
+@onready var map_name_label: Label = $CanvasLayer/RoundUI/Map/MarginContainer/VBoxContainer/CenterContainer2/MapNameLabel
+
+var roundNum = 1
 var roundFinished = false
+signal roundFinishedSignal
+
+var disasterFunctions = [
+	meteor_shower,
+	tornado
+]
+
+var maps = [
+	tent
+]
 
 func _ready() -> void:
+	start_round()
+
+
+func start_round():
+	roundFinished = false
 	$RoundTimer.start()
-	meteor_shower()
+	await choose_map()
+	disasterFunctions.pick_random().call()
+
+
+func choose_map():
+	var map = maps.pick_random().instantiate()
+	map_name_label.text = map.name
+	map.name = "Map"
+	map.position = Vector3(0, 1, 0)
+	add_child(map)
+	
+	var showPanelTween = get_tree().create_tween()
+	showPanelTween.tween_property(round_ui.find_child("Map"), "position", Vector2(376, 0), 0.5).set_trans(Tween.TRANS_ELASTIC)
+	await get_tree().create_timer(3.0).timeout
+	var hidePanelTween = get_tree().create_tween()
+	hidePanelTween.tween_property(round_ui.find_child("Map"), "position", Vector2(376, -100), 0.5).set_trans(Tween.TRANS_ELASTIC)
+	await hidePanelTween.finished
+
+
+func show_round_ui(description):
+	description_label.text = description
+	
+	var flashWarningTween = get_tree().create_tween().set_loops()
+	flashWarningTween.tween_property(warning_label, "theme_override_constants/outline_size", 0, 0.2)
+	flashWarningTween.tween_property(warning_label, "theme_override_constants/outline_size", 10, 0.2)
+	
+	var showPanelTween = get_tree().create_tween()
+	showPanelTween.tween_property(round_ui.find_child("Disaster"), "position", Vector2(376, 0), 0.5).set_trans(Tween.TRANS_ELASTIC)
+	await get_tree().create_timer(3.0).timeout
+	var hidePanelTween = get_tree().create_tween()
+	hidePanelTween.tween_property(round_ui.find_child("Disaster"), "position", Vector2(376, -100), 0.5).set_trans(Tween.TRANS_ELASTIC)
+	flashWarningTween.kill()
 
 
 func meteor_shower():
+	show_round_ui("Avoid the meteor shower")
 	while not roundFinished:
-		var new_meteor = meteor.instantiate()
+		var new_meteor = meteor_scene.instantiate()
 		
 		# get random position in circle
 		var angle = randf_range(0, TAU) 
@@ -25,6 +83,25 @@ func meteor_shower():
 		await get_tree().create_timer(0.1).timeout
 
 
+func tornado():
+	video.show()
+	video.play()
+
+func _on_video_finished() -> void:
+	video.hide()
+	show_round_ui("Tornadonut! Stay clear of its path")
+	var new_tornado = tornado_scene.instantiate()
+	new_tornado.position = Vector3(15, 7, -15)
+	add_child(new_tornado)
+	
+	await roundFinishedSignal
+	new_tornado.queue_free()
+
+
 func _on_round_timer_timeout() -> void:
 	roundFinished = true
+	roundFinishedSignal.emit()
 	print("Round ended")
+	get_node("Map").queue_free()
+	await get_tree().create_timer(5.0).timeout
+	start_round()

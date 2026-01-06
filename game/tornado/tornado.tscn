@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://dd3422v21scxv"]
+
+[ext_resource type="PackedScene" uid="uid://btjj625qlli5c" path="res://tornado/pinkdonut.glb" id="1_0isvb"]
+[ext_resource type="Script" uid="uid://bqhcngtxbad52" path="res://tornado/tornado.gd" id="1_o7nwv"]
+[ext_resource type="ArrayMesh" uid="uid://ev5n2efspdbc" path="res://tornado/browndonut.obj" id="3_o338m"]
+[ext_resource type="ArrayMesh" uid="uid://de0p72hi1s6jq" path="res://tornado/bluedonut.obj" id="4_hc402"]
+[ext_resource type="ArrayMesh" uid="uid://fm61ly2agfir" path="res://tornado/pinkdonut.obj" id="5_ac6ae"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_otd7i"]
+height = 6.0
+radius = 2.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0isvb"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 6.0
+emission_ring_radius = 2.0
+emission_ring_inner_radius = 1.5
+emission_ring_cone_angle = 90.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -62.65
+radial_accel_max = -39.11
+tangential_accel_min = 14.999997
+tangential_accel_max = 29.999996
+damping_min = 10.0
+damping_max = 10.0
+
+[node name="pinkdonut" instance=ExtResource("1_0isvb")]
+script = ExtResource("1_o7nwv")
+
+[node name="DonutHole_001" parent="." index="0"]
+transform = Transform3D(0.7, 0, 0, 0, -3.059797e-08, -0.7, 0, 0.7, -3.059797e-08, 0, -0.75, 0)
+
+[node name="Area3D" type="Area3D" parent="." index="1"]
+gravity_space_override = 3
+gravity_point = true
+gravity = 30.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
+shape = SubResource("CylinderShape3D_otd7i")
+
+[node name="Brown" type="GPUParticles3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_0isvb")
+draw_pass_1 = ExtResource("3_o338m")
+
+[node name="Blue" type="GPUParticles3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_0isvb")
+draw_pass_1 = ExtResource("4_hc402")
+
+[node name="Pink" type="GPUParticles3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_0isvb")
+draw_pass_1 = ExtResource("5_ac6ae")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

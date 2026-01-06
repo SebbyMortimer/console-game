@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bb7rfbykurvxj" path="res://ui/round_ui.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://c1gygufpe422r" path="res://ui/dialog_ui.tscn" id="5_7mycd"]
 [ext_resource type="AudioStream" uid="uid://c2cmhm4m6ha1t" path="res://voicelines/hey watch it.ogg" id="5_lquwl"]
-[ext_resource type="PackedScene" uid="uid://d6jbsjucnbrk" path="res://maps/tent-test/tent-test.tscn" id="7_272bh"]
+[ext_resource type="VideoStream" uid="uid://dxgxop08stxfe" path="res://tornado/Some dumb idiot has put the weather machine on 7.ogv" id="6_5vw27"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
 sky_top_color = Color(0.14877829, 0.4577273, 0.7604781, 1)
@@ -37,7 +37,7 @@ radius = 10.0
 script = ExtResource("1_0xm2m")
 
 [node name="RoundTimer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 60.0
 one_shot = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -67,10 +67,18 @@ shape = SubResource("CylinderShape3D_h2yge")
 
 [node name="Dialog_UI" parent="CanvasLayer" instance=ExtResource("5_7mycd")]
 
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("6_5vw27")
+expand = true
+
 [node name="Voiceline" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_lquwl")
 
-[node name="Tent" parent="." instance=ExtResource("7_272bh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7599587, 1.2808077, -4.482545)
-
 [connection signal="timeout" from="RoundTimer" to="." method="_on_round_timer_timeout"]
+[connection signal="finished" from="CanvasLayer/VideoStreamPlayer" to="." method="_on_video_finished"]
