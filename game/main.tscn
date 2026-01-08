@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bcs5nwl4j6tq"]
+[gd_scene load_steps=15 format=3 uid="uid://bcs5nwl4j6tq"]
 
 [ext_resource type="Script" uid="uid://deug42pt650s5" path="res://main.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://bayggrbrmq2vf" path="res://Flynn/player.tscn" id="1_ig7tw"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c1gygufpe422r" path="res://ui/dialog_ui.tscn" id="5_7mycd"]
 [ext_resource type="AudioStream" uid="uid://c2cmhm4m6ha1t" path="res://voicelines/hey watch it.ogg" id="5_lquwl"]
 [ext_resource type="VideoStream" uid="uid://dxgxop08stxfe" path="res://tornado/Some dumb idiot has put the weather machine on 7.ogv" id="6_5vw27"]
+[ext_resource type="AudioStream" uid="uid://b1guqfyjk31jh" path="res://Capn Flynns Ship.ogg" id="8_5vw27"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
 sky_top_color = Color(0.14877829, 0.4577273, 0.7604781, 1)
@@ -39,6 +40,9 @@ script = ExtResource("1_0xm2m")
 [node name="RoundTimer" type="Timer" parent="."]
 wait_time = 60.0
 one_shot = true
+
+[node name="IntermissionTimer" type="Timer" parent="."]
+wait_time = 30.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_h2yge")
@@ -79,6 +83,10 @@ expand = true
 
 [node name="Voiceline" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_lquwl")
+volume_db = -5.0
+
+[node name="IntermissionMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_5vw27")
 
 [connection signal="timeout" from="RoundTimer" to="." method="_on_round_timer_timeout"]
 [connection signal="finished" from="CanvasLayer/VideoStreamPlayer" to="." method="_on_video_finished"]

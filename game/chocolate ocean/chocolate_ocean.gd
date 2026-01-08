@@ -2,6 +2,11 @@ extends StaticBody3D
 
 @export var bubble: PackedScene = preload("res://chocolate ocean/bubble.tscn")
 
+
+func _process(delta: float) -> void:
+	$MeshInstance3D.mesh.material.uv1_offset += Vector3(0.02, 0.02, 0) * delta
+
+
 func _on_bubble_timer_timeout() -> void:
 	var new_bubble = bubble.instantiate()
 	new_bubble.position = Vector3(randf_range(-25, 25), 0, randf_range(-25, 25))
