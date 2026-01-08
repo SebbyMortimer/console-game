@@ -124,11 +124,12 @@ func _on_round_timer_timeout() -> void:
 	if randi_range(1, 5) == 1 and not $CanvasLayer/Dialog_UI.is_dialog_visible():
 		var randVoiceline = randi_range(1, 2)
 		if randVoiceline == 1:
+			$CanvasLayer/Dialog_UI.show_dialog("That was beautiful...")
 			$Voiceline.stream = preload("res://voicelines/that was beautiful.ogg")
 		else:
+			$CanvasLayer/Dialog_UI.show_dialog("Woo! Well, that was a close one - yet somehow I was able to lead us through.")
 			$Voiceline.stream = preload("res://voicelines/that was a close one.ogg")
 		$Voiceline.play()
-		$CanvasLayer/Dialog_UI.show_dialog("That was beautiful...")
 		await $Voiceline.finished
 		$CanvasLayer/Dialog_UI.hide_dialog()
 	
