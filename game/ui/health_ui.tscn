@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=3 uid="uid://cytdnkxchxyh7"]
+
+[ext_resource type="Script" uid="uid://da8ejrdgm86mp" path="res://ui/health_ui.gd" id="1_4uv25"]
+[ext_resource type="FontFile" uid="uid://dq4rhitj6bp2o" path="res://Markin LT Regular Bold.ttf" id="1_6rl7h"]
+
+[node name="HealthUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4uv25")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="BackgroundMargin" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="BackgroundBar" type="ColorRect" parent="Panel/BackgroundMargin"]
+layout_mode = 2
+color = Color(0.92629945, 2.5027991e-06, 1.540184e-06, 1)
+
+[node name="HealthBarMargin" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HealthBar" type="ColorRect" parent="Panel/HealthBarMargin"]
+layout_mode = 2
+color = Color(0.19215687, 1, 0.16862746, 1)
+
+[node name="HealthLabelMargin" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+
+[node name="HealthLabel" type="Label" parent="Panel/HealthLabelMargin"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("1_6rl7h")
+text = "500"

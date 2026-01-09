@@ -58,4 +58,9 @@ local_coords = true
 process_material = SubResource("ParticleProcessMaterial_0isvb")
 draw_pass_1 = ExtResource("5_ac6ae")
 
+[node name="DamageTimer" type="Timer" parent="." index="5"]
+wait_time = 0.5
+
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]

@@ -1,12 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://bcs5nwl4j6tq"]
+[gd_scene load_steps=16 format=3 uid="uid://bcs5nwl4j6tq"]
 
 [ext_resource type="Script" uid="uid://deug42pt650s5" path="res://main.gd" id="1_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://bayggrbrmq2vf" path="res://Flynn/player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://donykecn3bj77" path="res://Flynn/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://bvaubni24owcf" path="res://chocolate ocean/chocolate_ocean.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://bb7rfbykurvxj" path="res://ui/round_ui.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://c1gygufpe422r" path="res://ui/dialog_ui.tscn" id="5_7mycd"]
 [ext_resource type="AudioStream" uid="uid://c2cmhm4m6ha1t" path="res://voicelines/hey watch it.ogg" id="5_lquwl"]
 [ext_resource type="VideoStream" uid="uid://dxgxop08stxfe" path="res://tornado/Some dumb idiot has put the weather machine on 7.ogv" id="6_5vw27"]
+[ext_resource type="PackedScene" uid="uid://cytdnkxchxyh7" path="res://ui/health_ui.tscn" id="6_kek77"]
 [ext_resource type="AudioStream" uid="uid://b1guqfyjk31jh" path="res://Capn Flynns Ship.ogg" id="8_5vw27"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
@@ -70,6 +71,8 @@ shape = SubResource("CylinderShape3D_h2yge")
 [node name="RoundUI" parent="CanvasLayer" instance=ExtResource("4_1bvp3")]
 
 [node name="Dialog_UI" parent="CanvasLayer" instance=ExtResource("5_7mycd")]
+
+[node name="HealthUI" parent="CanvasLayer" instance=ExtResource("6_kek77")]
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="CanvasLayer"]
 visible = false

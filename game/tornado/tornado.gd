@@ -28,3 +28,14 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		body.freeze = false
 		await get_tree().create_timer(1.0).timeout
 		cooldown = false
+	elif body is CharacterBody3D:
+		get_node("/root/Main/CanvasLayer/HealthUI").remove_health(100) # deal initial damage
+		$DamageTimer.start()
+
+
+func _on_area_3d_body_exited(body: Node3D) -> void:
+	$DamageTimer.stop()
+
+
+func _on_damage_timer_timeout() -> void:
+	get_node("/root/Main/CanvasLayer/HealthUI").remove_health(100)

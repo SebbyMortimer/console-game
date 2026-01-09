@@ -1,5 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://5wnui6xw12gr"]
+[gd_scene load_steps=22 format=3 uid="uid://5wnui6xw12gr"]
 
+[ext_resource type="Script" uid="uid://csfwdqvy1iadk" path="res://maps/castle/toad.gd" id="1_1m3xn"]
 [ext_resource type="Texture2D" uid="uid://2yunbpnnldii" path="res://maps/castle/Stone_Wall_vdbhdju_1K_BaseColor.jpg" id="1_as8e0"]
 [ext_resource type="PackedScene" uid="uid://b4yv42rh7eik3" path="res://maps/castle/toad.glb" id="2_75trq"]
 [ext_resource type="AudioStream" uid="uid://b7qf2dy7mo57f" path="res://maps/castle/i love.mp3" id="3_75trq"]
@@ -68,6 +69,7 @@ size = Vector3(3.5, 0.5, 3.5)
 
 [node name="Toad" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6461562, 0, 0.23919392)
+script = ExtResource("1_1m3xn")
 
 [node name="toad" parent="Toad" instance=ExtResource("2_75trq")]
 
@@ -75,7 +77,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6461562, 0, 0.23919392)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 stream = ExtResource("3_75trq")
 volume_db = -10.0
-autoplay = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Toad"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.625, 0)

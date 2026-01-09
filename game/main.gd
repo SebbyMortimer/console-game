@@ -114,7 +114,7 @@ func _on_video_finished() -> void:
 func _on_round_timer_timeout() -> void:
 	roundFinished = true
 	roundFinishedSignal.emit()
-	print("Round ended")
+	$CanvasLayer/HealthUI.reset_health()
 	var showPanelTween = get_tree().create_tween()
 	showPanelTween.tween_property(round_ui.get_node("Intermission"), "position", Vector2(376, 0), 0.5).set_trans(Tween.TRANS_ELASTIC)
 	get_node("Map").queue_free()
