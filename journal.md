@@ -56,3 +56,7 @@ Some screenshots:
 ### Day 9
 
 Flynn is now fully animated - he has idle, walk and jump animations. This was my first attempt at Blender animation so it took a while to mess about inside Blender to get it to do what I wanted, but eventually I managed to get them imported into Godot and after a bit of tweaking I think I've got the animations to a good state that I'm happy with. After I had spent some time on animations I decided to move onto making the health bar so that getting hit by disasters has consequences. I created a health bar damage animation and made the tornadonut and meteor shower both damage you when you get hit by them, I also plan to add a damage sound effect along with some more ambient noises for the game. Once again I also just tinkered around with some timings and randomness across my game today to get the balance right - I reduced the chances of some annoying things and paced the game a little better. Tomorrow I want to make the chocolate ocean either damage you or insta-kill you, since I think it's quite easy to avoid the chocolate ocean I think I'll just make it drown you instantly when you touch it, I'd also like to maybe add another disaster or map or maybe add the intro or sound effects or something. I guess I'll see tomorrow what I prioritise or what motivates me the most.
+
+Edit: Here's a video of the animations and the health bar tween because I forgot to add it.
+
+https://github.com/user-attachments/assets/17b23818-eac2-4196-9d33-88ad8699c0bd
