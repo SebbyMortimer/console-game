@@ -22,3 +22,12 @@ func hide_dialog():
 	hidePanelTween.tween_property($Panel, "position", Vector2(276, 648), 0.2).set_trans(Tween.TRANS_LINEAR)
 	await hidePanelTween.finished
 	dialog_visible = false
+
+
+func show_dialog_meteor(text):
+	dialog_visible = true
+	$Panel/MarginContainer/HBoxContainer/RichTextLabel.text = "[color=yellow]Flynn:[/color] " + text
+	var showPanelTween = get_tree().create_tween()
+	showPanelTween.tween_property($Panel, "position", Vector2(276, 548), 0.2).set_trans(Tween.TRANS_LINEAR)
+	await get_node("/root/Main/Voiceline").finished
+	hide_dialog()

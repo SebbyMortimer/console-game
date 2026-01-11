@@ -1,11 +1,6 @@
 extends RigidBody3D
 
 
-func hide_dialog(): # needs to be a function so it doesnt stop the rest of the code
-	await get_node("/root/Main/Voiceline").finished
-	get_node("/root/Main/CanvasLayer/Dialog_UI").hide_dialog()
-
-
 func _on_body_entered(body):
 	if body.name == "InvisWall":
 		return
@@ -25,15 +20,14 @@ func _on_body_entered(body):
 					var randNum = randi_range(1, 3)
 					if randNum == 1:
 						get_node("/root/Main/Voiceline").stream = preload("res://voicelines/hey watch it.ogg")
-						get_node("/root/Main/CanvasLayer/Dialog_UI").show_dialog("Hey, watch it! Look I didn't get to be this handsome by getting hit with bombs!")
+						get_node("/root/Main/CanvasLayer/Dialog_UI").show_dialog_meteor("Hey, watch it! Look I didn't get to be this handsome by getting hit with bombs!")
 					elif randNum == 2:
 						get_node("/root/Main/Voiceline").stream = preload("res://voicelines/ouch.ogg")
-						get_node("/root/Main/CanvasLayer/Dialog_UI").show_dialog("Ouch!")
+						get_node("/root/Main/CanvasLayer/Dialog_UI").show_dialog_meteor("Ouch!")
 					else:
 						get_node("/root/Main/Voiceline").stream = preload("res://voicelines/that was close its okay.ogg")
-						get_node("/root/Main/CanvasLayer/Dialog_UI").show_dialog("AHHH! That was close - it's okay.")
+						get_node("/root/Main/CanvasLayer/Dialog_UI").show_dialog_meteor("AHHH! That was close - it's okay.")
 					get_node("/root/Main/Voiceline").play()
-					hide_dialog()
 			elif overlapping_body is RigidBody3D and randi_range(1, 10) == 1: # if it's in the blast radius, unfreeze the body
 				overlapping_body.freeze = false
 		
