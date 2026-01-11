@@ -1,6 +1,11 @@
 extends RigidBody3D
 
 
+func hide_dialog(): # needs to be a function so it doesnt stop the rest of the code
+	await get_node("/root/Main/Voiceline").finished
+	get_node("/root/Main/CanvasLayer/Dialog_UI").hide_dialog()
+
+
 func _on_body_entered(body):
 	if body.name == "InvisWall":
 		return
@@ -28,8 +33,7 @@ func _on_body_entered(body):
 						get_node("/root/Main/Voiceline").stream = preload("res://voicelines/that was close its okay.ogg")
 						get_node("/root/Main/CanvasLayer/Dialog_UI").show_dialog("AHHH! That was close - it's okay.")
 					get_node("/root/Main/Voiceline").play()
-					await get_node("/root/Main/Voiceline").finished
-					get_node("/root/Main/CanvasLayer/Dialog_UI").hide_dialog()
+					hide_dialog()
 			elif overlapping_body is RigidBody3D and randi_range(1, 10) == 1: # if it's in the blast radius, unfreeze the body
 				overlapping_body.freeze = false
 		
