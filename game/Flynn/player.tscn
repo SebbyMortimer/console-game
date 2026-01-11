@@ -20,3 +20,7 @@ top_level = true
 
 [node name="Camera3D" type="Camera3D" parent="CameraRotatePoint" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="DrowningTimer" type="Timer" parent="." index="4"]
+
+[connection signal="timeout" from="DrowningTimer" to="." method="_on_drowning_timer_timeout"]

@@ -31,6 +31,12 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	elif body is CharacterBody3D:
 		get_node("/root/Main/CanvasLayer/HealthUI").remove_health(100) # deal initial damage
 		$DamageTimer.start()
+		if randi_range(1, 5) == 1 and not get_node("/root/Main/Voiceline").playing and not get_node("/root/Main/CanvasLayer/Dialog_UI").is_dialog_visible():
+			get_node("/root/Main/Voiceline").stream = preload("res://voicelines/that tornado.ogg")
+			get_node("/root/Main/Voiceline").play()
+			get_node("/root/Main/CanvasLayer/Dialog_UI").show_dialog("That tornado is RIGHT on top of us.")
+			await get_node("/root/Main/Voiceline").finished
+			get_node("/root/Main/CanvasLayer/Dialog_UI").hide_dialog()
 
 
 func _on_area_3d_body_exited(body: Node3D) -> void:

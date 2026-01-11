@@ -6,6 +6,7 @@ const JUMP_VELOCITY = 10
 var push_force = 1.0
 
 var is_jumping = false # variable used to stop walk and idle anims overriding the jump anim
+var touching_ocean = false
 
 @onready var cameraRotatePoint = $CameraRotatePoint
 
@@ -52,11 +53,23 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	
+	touching_ocean = false
 	for i in get_slide_collision_count():
 		var c = get_slide_collision(i)
 		if c.get_collider() is RigidBody3D:
 			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
+		elif c.get_collider().name == "ChocolateOcean":
+			touching_ocean = true
+			if $DrowningTimer.is_stopped():
+				get_node("/root/Main/CanvasLayer/HealthUI").remove_health(100)
+				$DrowningTimer.start()
+	if not touching_ocean:
+		$DrowningTimer.stop()
 
+
+func _on_drowning_timer_timeout() -> void:
+	get_node("/root/Main/CanvasLayer/HealthUI").remove_health(100)
+	
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:

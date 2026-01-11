@@ -12,9 +12,10 @@ const tornado_scene: PackedScene = preload("res://tornado/tornado.tscn")
 @onready var description_label: Label = $CanvasLayer/RoundUI/Disaster/MarginContainer/VBoxContainer/CenterContainer2/DescriptionLabel
 @onready var map_name_label: Label = $CanvasLayer/RoundUI/Map/MarginContainer/VBoxContainer/CenterContainer2/MapNameLabel
 
-var roundNum = 1
 var roundFinished = false
 signal roundFinishedSignal
+
+var currentMap = ""
 
 var disasterFunctions = [
 	meteor_shower,
@@ -27,6 +28,7 @@ var maps = [
 ]
 
 func _ready() -> void:
+	$CanvasLayer/HealthUI.died.connect(_on_round_timer_timeout)
 	start_round()
 
 
@@ -40,6 +42,7 @@ func start_round():
 func choose_map():
 	var map = maps.pick_random().instantiate()
 	map_name_label.text = map.name
+	currentMap = map.name
 	map.name = "Map"
 	map.position = Vector3(0, 1, 0)
 	add_child(map)
@@ -65,6 +68,7 @@ func show_round_ui(description):
 	var hidePanelTween = get_tree().create_tween()
 	hidePanelTween.tween_property(round_ui.get_node("Disaster"), "position", Vector2(376, -100), 0.5).set_trans(Tween.TRANS_ELASTIC)
 	flashWarningTween.kill()
+	$InvisWall/CollisionShape3D.disabled = true
 
 
 func meteor_shower():
@@ -107,19 +111,31 @@ func _on_video_finished() -> void:
 	new_tornado.position = Vector3(15, 7, -15)
 	add_child(new_tornado)
 	
+	if currentMap == "Castle" and randi_range(1, 2) == 1:
+		get_node("/root/Main/Voiceline").stream = preload("res://voicelines/wowzers now thats a twister.ogg")
+		get_node("/root/Main/CanvasLayer/Dialog_UI").show_dialog("Wowzers, now that's a twister and it's ripping that castle to pieces. It's almost as impressive as me - almost.")
+		get_node("/root/Main/Voiceline").play()
+		await get_node("/root/Main/Voiceline").finished
+		get_node("/root/Main/CanvasLayer/Dialog_UI").hide_dialog()
+	
 	await roundFinishedSignal
 	new_tornado.queue_free()
 
 
 func _on_round_timer_timeout() -> void:
+	if roundFinished: # for some reason this function keeps getting called multiple times
+		return
 	roundFinished = true
 	roundFinishedSignal.emit()
+	$InvisWall/CollisionShape3D.set_deferred("disabled", false)
 	$CanvasLayer/HealthUI.reset_health()
 	var showPanelTween = get_tree().create_tween()
 	showPanelTween.tween_property(round_ui.get_node("Intermission"), "position", Vector2(376, 0), 0.5).set_trans(Tween.TRANS_ELASTIC)
 	get_node("Map").queue_free()
+	currentMap = ""
 	$IntermissionTimer.start()
 	$IntermissionMusic.play()
+	$Player.position = Vector3(0, 1, 6)
 	
 	if randi_range(1, 5) == 1 and not $CanvasLayer/Dialog_UI.is_dialog_visible():
 		var randVoiceline = randi_range(1, 2)
@@ -134,9 +150,15 @@ func _on_round_timer_timeout() -> void:
 		$CanvasLayer/Dialog_UI.hide_dialog()
 	
 	await $IntermissionTimer.timeout
-	
+	if randi_range(1, 5) == 1:
+		get_node("/root/Main/Voiceline").stream = preload("res://voicelines/piece of cake.ogg")
+		get_node("/root/Main/CanvasLayer/Dialog_UI").show_dialog("This is gonna be a piece of cake especially for heroes like us - heroes who like cake.")
+		get_node("/root/Main/Voiceline").play()
+		await get_node("/root/Main/Voiceline").finished
+		get_node("/root/Main/CanvasLayer/Dialog_UI").hide_dialog()
 	var hidePanelTween = get_tree().create_tween()
 	hidePanelTween.tween_property(round_ui.get_node("Intermission"), "position", Vector2(376, -100), 0.5).set_trans(Tween.TRANS_ELASTIC)
 	await hidePanelTween.finished
+	round_ui.get_node("Intermission/MarginContainer/VBoxContainer/CenterContainer/CompleteLabel").text = "Round Complete"
 	$IntermissionMusic.stop()
 	start_round()

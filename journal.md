@@ -60,3 +60,9 @@ Flynn is now fully animated - he has idle, walk and jump animations. This was my
 Edit: Here's a video of the animations and the health bar tween because I forgot to add it.
 
 https://github.com/user-attachments/assets/17b23818-eac2-4196-9d33-88ad8699c0bd
+
+### Day 10
+
+I polished up the game a bit today by once again tweaking some values and randomness to get the game balance right, I also added some more voicelines for Flynn to say when specific things happen. Also related to audio, I added sound effects for the tornado and meteors which helps to make the game feel more alive and less silent. You now take damage when you touch the chocolate ocean and I know I said it would insta-kill you but after some playtesting I decided it was better for it to just damage you over time, also if you get to zero health you now fail the round and you go back to intermission while you wait for the next round and the UI reflects that. Tomorrow I might not be able to do a lot since I'll be busy trying to get the web version of the game set up but I think I'll try to add at least one more map for variety and then I can just work on this game in the background over the next few weeks, even if it's not counted for time.
+
+Screenshot of the round failed screen because it's hard to take a screenshot of sound effects:

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://uexyf4stj6c"
+path="res://.godot/imported/that tornado.ogg-9d6e5643497d5d19ca2b41ed6a4c2b35.oggvorbisstr"
+
+[deps]
+
+source_file="res://voicelines/that tornado.ogg"
+dest_files=["res://.godot/imported/that tornado.ogg-9d6e5643497d5d19ca2b41ed6a4c2b35.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
