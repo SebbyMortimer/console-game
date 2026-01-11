@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://c2cmhm4m6ha1t" path="res://voicelines/hey watch it.ogg" id="5_lquwl"]
 [ext_resource type="VideoStream" uid="uid://dxgxop08stxfe" path="res://tornado/Some dumb idiot has put the weather machine on 7.ogv" id="6_5vw27"]
 [ext_resource type="PackedScene" uid="uid://cytdnkxchxyh7" path="res://ui/health_ui.tscn" id="6_kek77"]
-[ext_resource type="AudioStream" uid="uid://b1guqfyjk31jh" path="res://Capn Flynns Ship.ogg" id="8_5vw27"]
+[ext_resource type="AudioStream" uid="uid://b1guqfyjk31jh" path="res://bg music/Capn Flynns Ship.ogg" id="8_5vw27"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
 sky_top_color = Color(0.14877829, 0.4577273, 0.7604781, 1)
@@ -52,7 +52,7 @@ wait_time = 30.0
 environment = SubResource("Environment_h2yge")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+transform = Transform3D(0.5174148, -0.7410881, 0.4278673, 2.7805946e-08, 0.49999994, 0.86602545, -0.85573477, -0.4480944, 0.25870734, 0, 0, 0)
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
@@ -91,7 +91,7 @@ expand = true
 stream = ExtResource("5_lquwl")
 volume_db = -5.0
 
-[node name="IntermissionMusic" type="AudioStreamPlayer" parent="."]
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_5vw27")
 
 [node name="InvisWall" type="StaticBody3D" parent="."]

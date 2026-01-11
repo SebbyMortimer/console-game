@@ -61,17 +61,20 @@ func _physics_process(delta: float) -> void:
 		elif c.get_collider().name == "ChocolateOcean":
 			touching_ocean = true
 			if $DrowningTimer.is_stopped():
-				get_node("/root/Main/CanvasLayer/HealthUI").remove_health(100)
+				get_node("/root/Main/CanvasLayer/HealthUI").remove_health(50)
 				$DrowningTimer.start()
 	if not touching_ocean:
 		$DrowningTimer.stop()
 
 
 func _on_drowning_timer_timeout() -> void:
-	get_node("/root/Main/CanvasLayer/HealthUI").remove_health(100)
+	get_node("/root/Main/CanvasLayer/HealthUI").remove_health(50)
 	
 
 func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed: # need this for web build mouse capture
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
 	if event is InputEventMouseMotion:
 		var mouse_delta = event.relative
 		

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d0qingvnf4svv"
+path="res://.godot/imported/daisy circuit.ogg-3faa7fdd2216082d0fe8b7b490e0719e.oggvorbisstr"
+
+[deps]
+
+source_file="res://bg music/daisy circuit.ogg"
+dest_files=["res://.godot/imported/daisy circuit.ogg-3faa7fdd2216082d0fe8b7b490e0719e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

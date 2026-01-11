@@ -2,6 +2,7 @@ extends Node3D
 
 const tent: PackedScene = preload("res://maps/tent/tent.tscn")
 const castle: PackedScene = preload("res://maps/castle/castle.tscn")
+const house: PackedScene = preload("res://maps/house/house.tscn")
 
 const meteor_scene: PackedScene = preload("res://meteor/meteor.tscn")
 const tornado_scene: PackedScene = preload("res://tornado/tornado.tscn")
@@ -24,7 +25,8 @@ var disasterFunctions = [
 
 var maps = [
 	tent,
-	castle
+	castle,
+	house
 ]
 
 func _ready() -> void:
@@ -35,6 +37,21 @@ func _ready() -> void:
 func start_round():
 	roundFinished = false
 	$RoundTimer.start()
+	var randNum = randi_range(1, 4)
+	if randNum == 1:
+		$BackgroundMusic.volume_db = -10
+		$BackgroundMusic.stream = preload("res://bg music/peach stadium.ogg")
+	elif randNum == 2:
+		$BackgroundMusic.volume_db = -15
+		$BackgroundMusic.stream = preload("res://bg music/unity.ogg")
+	elif randNum == 3:
+		$BackgroundMusic.volume_db = -15
+		$BackgroundMusic.stream = preload("res://bg music/daisy circuit.ogg")
+	elif randNum == 4:
+		$BackgroundMusic.volume_db = -15
+		$BackgroundMusic.stream = preload("res://bg music/mr beans holiday.ogg")
+		
+	$BackgroundMusic.play()
 	await choose_map()
 	disasterFunctions.pick_random().call()
 
@@ -101,11 +118,13 @@ func meteor_shower():
 
 
 func tornado():
+	$BackgroundMusic.stream_paused = true
 	video.show()
 	video.play()
 
 func _on_video_finished() -> void:
 	video.hide()
+	$BackgroundMusic.stream_paused = false
 	show_round_ui("Tornadonut! Stay clear of its path")
 	var new_tornado = tornado_scene.instantiate()
 	new_tornado.position = Vector3(15, 7, -15)
@@ -134,7 +153,10 @@ func _on_round_timer_timeout() -> void:
 	get_node("Map").queue_free()
 	currentMap = ""
 	$IntermissionTimer.start()
-	$IntermissionMusic.play()
+	$BackgroundMusic.stop()
+	$BackgroundMusic.volume_db = 0
+	$BackgroundMusic.stream = preload("res://bg music/Capn Flynns Ship.ogg")
+	$BackgroundMusic.play()
 	$Player.position = Vector3(0, 1, 6)
 	
 	if randi_range(1, 5) == 1 and not $CanvasLayer/Dialog_UI.is_dialog_visible():
@@ -150,6 +172,7 @@ func _on_round_timer_timeout() -> void:
 		$CanvasLayer/Dialog_UI.hide_dialog()
 	
 	await $IntermissionTimer.timeout
+	$CanvasLayer/HealthUI.reset_health() # reset health again in case some was lost during intermission - this sometimes happens as the last few meteors are exploding
 	if randi_range(1, 5) == 1:
 		get_node("/root/Main/Voiceline").stream = preload("res://voicelines/piece of cake.ogg")
 		get_node("/root/Main/CanvasLayer/Dialog_UI").show_dialog("This is gonna be a piece of cake especially for heroes like us - heroes who like cake.")
@@ -160,5 +183,5 @@ func _on_round_timer_timeout() -> void:
 	hidePanelTween.tween_property(round_ui.get_node("Intermission"), "position", Vector2(376, -100), 0.5).set_trans(Tween.TRANS_ELASTIC)
 	await hidePanelTween.finished
 	round_ui.get_node("Intermission/MarginContainer/VBoxContainer/CenterContainer/CompleteLabel").text = "Round Complete"
-	$IntermissionMusic.stop()
+	$BackgroundMusic.stop()
 	start_round()

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://basb38hixqmii"
+path="res://.godot/imported/unity.ogg-ec3692a348009e58a204eb26b4c841ab.oggvorbisstr"
+
+[deps]
+
+source_file="res://bg music/unity.ogg"
+dest_files=["res://.godot/imported/unity.ogg-ec3692a348009e58a204eb26b4c841ab.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

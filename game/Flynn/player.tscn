@@ -9,6 +9,7 @@ height = 1.7
 
 [node name="Player" instance=ExtResource("1_ad76b")]
 floor_constant_speed = true
+floor_max_angle = 1.2217305
 script = ExtResource("1_k0m6d")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]

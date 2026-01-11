@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b1guqfyjk31jh"
+path="res://.godot/imported/Capn Flynns Ship.ogg-7eac99315b5064fb29d9e7e70710b051.oggvorbisstr"
+
+[deps]
+
+source_file="res://bg music/Capn Flynns Ship.ogg"
+dest_files=["res://.godot/imported/Capn Flynns Ship.ogg-7eac99315b5064fb29d9e7e70710b051.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
