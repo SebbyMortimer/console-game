@@ -2,6 +2,8 @@
 
 ## Week 1: Making the game
 
+FYI: I got a bit of a head start working on my game, so day 1 is actually Friday the 2nd when the official starting date was on Sunday, so that's why this week is longer than the rest.
+
 ### Day 1
 
 Today I worked on importing the Flynn character model from Skylanders Giants, getting him cleaned up and setting him up inside the game. To set him up, I began programming the player and camera movement, the player can move in all 4 directions and should be pretty easy to swap over to joystick controls once I've created the controller. The player smoothly rotates in the direction that they're walking and the camera can orbit around the player's body. However, it currently orbits their feet so tomorrow I'll try to move it up so that the camera orbits around the player's head instead. I also quickly added jumping but I want to tweak the speed at which they fall back down because right now the player feels quite floaty.
@@ -74,3 +76,11 @@ Screenshot of the round failed screen because it's hard to take a screenshot of 
 Final day today. I got a third map done today which is called **the house** and that was pretty painless, there's also a cute lil guy outside that you can push about. I added a ton of music today so that it's not so quiet while you're playing rounds and it should help to hype the player up and I adjusted some of the volume levels on all audio to make audio levels more consistent. I moved the sun to the front of the map for some more flattering lighting, I reduced how much damage you take from the chocolate ocean and tornado however I made the tornado move faster to make up for decreasing its damage. And of course I tried to do some final cleanup for the game since I'll need to submit it today. The rest of my time I spent setting up the web build and the only problems I had were with the mouse and the UI but those were both easily solvable. The only issue with the web build which I don't really have much control over is that when a new object is being instantiated it lags a bit, I believe because of shader compilation, however in other builds that aren't web builds that won't be an issue. Anyway, over this week, I got the game done, it's fully playable and I managed to add a ton of extra fun things that I wanted to add. The only thing I would've done differently would be to allocate a bit more time to add a third disaster but I'll probably add that next week, even if it doesn't count for my time. In fact I'll probably add a lot to my game if I'm allowed to over the next few weeks if I have some time. Overall, I really enjoyed working on this game and I'm really happy with the result.
 
 <img width="1149" height="645" alt="image" src="https://github.com/user-attachments/assets/b696a9be-884a-4ce8-a1dd-198722fdf5f7" />
+
+## Week 2: Hacking Together a Controller
+
+I didn't get to start this week until a bit later due to having to sit my prelims and my 18th birthday (yippee) so I started on day 4 being Thursday. I made the hackpad already through blueprint so it was fresh in my mind and I was able to fix everything I messed up in the hackpad for my controller.
+
+### Day 4
+
+Today I just quickly set up the KiCad project and installed the OPL library. In the schematic, I inserted the XAIO RP2040 microcontroller and a neopixel LED which I'm going to use to show the controller is powered on and maybe go rainbow coloured while playing a game. I spent some time trying to figure out how I was going to add joysticks but I couldn't really get my head around it so I'm going to try asking people tomorrow. I think the only other thing I need besides two joysticks is a button for jumping and a button for going back to the launcher from the game, and since I only need two buttons I could maybe create an interesting controller designed around that.
