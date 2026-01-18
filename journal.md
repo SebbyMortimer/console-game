@@ -79,7 +79,7 @@ Final day today. I got a third map done today which is called **the house** and 
 
 ## Week 2: Hacking Together a Controller
 
-I didn't get to start this week until a bit later due to having to sit my prelims and my 18th birthday (yippee) so I started on day 4 being Thursday. I made the hackpad already through blueprint so it was fresh in my mind and I was able to fix everything I messed up in the hackpad for my controller.
+I didn't get to start this week until a bit later due to having to sit my prelims but also my 18th birthday (yippee) so I missed the first couple of days meaning I started on day 4, being Thursday. Also initially I was following the hackpad guide but then I switched to a controller tutorial which I explain on day 7.
 
 ### Day 4
 
@@ -98,3 +98,7 @@ Today I found a footprint for the joystick that seems to match the pins I create
 So, late last night I ended up scrapping my hackpad because I didn't have a lot of confidence that it would work due to it being heavily influenced by ChatGPT, and instead I followed [this controller tutorial](https://www.youtube.com/watch?v=LSJfdG_Qgu8) sent by PenguinMo in the Hack Club Slack to create my controller instead which was really beginner friendly and easy to follow. I didn't go too far off the beaten track here as PCBs are definitely not where I shine but I hope to make up for that on the software and CAD side through my game, launcher and console design. Actually I suppose I could create a CAD case for my controller too, I'll try work on that next week alongside the launcher since I have a TON of time after being done with my prelims and birthday celebrations but the controller should be in a working state. Also, I saw a lot of people give up on this event but I hope it still continues right up until the end of week 4, I think unfortunately too many people found working on a PCB this week too difficult which is fair enough. But yeah I'm super excited for week 3 and having a chance to work on the launcher because I have so many ideas and it's going to be such a fun project to work on - see you next week! :)
 
 Here are some pictures of my controller:
+
+|PCB|3D View|
+|---|---|
+|<img width="928" height="684" alt="Screenshot 2026-01-18 212114" src="https://github.com/user-attachments/assets/0284157b-59fa-471e-bc32-fe23fb696edb" />|<img width="810" height="590" alt="Screenshot 2026-01-18 212136" src="https://github.com/user-attachments/assets/0005b1d3-bada-4c68-9e5b-561d7fa0e99d" />|
