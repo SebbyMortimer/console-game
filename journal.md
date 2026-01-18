@@ -83,4 +83,18 @@ I didn't get to start this week until a bit later due to having to sit my prelim
 
 ### Day 4
 
-Today I just quickly set up the KiCad project and installed the OPL library. In the schematic, I inserted the XAIO RP2040 microcontroller and a neopixel LED which I'm going to use to show the controller is powered on and maybe go rainbow coloured while playing a game. I spent some time trying to figure out how I was going to add joysticks but I couldn't really get my head around it so I'm going to try asking people tomorrow. I think the only other thing I need besides two joysticks is a button for jumping and a button for going back to the launcher from the game, and since I only need two buttons I could maybe create an interesting controller designed around that.
+Today I just quickly set up the KiCad project and installed the OPL library. In the schematic, I inserted the XIAO RP2040 microcontroller and a neopixel LED which I'm going to use to show the controller is powered on and maybe go rainbow coloured while playing a game. I spent some time trying to figure out how I was going to add joysticks but I couldn't really get my head around it so I'm going to try asking people tomorrow. I think the only other thing I need besides two joysticks is a button for jumping and a button for going back to the launcher from the game, and since I only need two buttons I could maybe create an interesting controller designed around that.
+
+### Day 5
+
+I did some research today on what joysticks to use and I found one called ALPS RKJXV1224005 which people have used in the past for PS4 controller repairs so it should be a pretty good joystick. I also created a custom symbol for the joystick with the help of ChatGPT because I'm really not sure what I'm doing when it comes to PCBs. I then wired everything together based on the hackpad guide and it should hopefully work. I recorded just under an hour - around 50 minutes - using Lapse but then their servers went down so I couldn't submit it.
+
+### Day 6
+
+Today I found a footprint for the joystick that seems to match the pins I created with ChatGPT so hopefully it should work then, I also converted the schematic to a PCB and positioned all of the components roughly where I'd like them, making sure to keep the board under 100mm x 100mm so that JLCPCB doesn't charge extra - I also placed the microcontroller on the back so that I could have an LED on the front.
+
+### Day 7
+
+So, late last night I ended up scrapping my hackpad because I didn't have a lot of confidence that it would work due to it being heavily influenced by ChatGPT, and instead I followed [this controller tutorial](https://www.youtube.com/watch?v=LSJfdG_Qgu8) sent by PenguinMo in the Hack Club Slack to create my controller instead which was really beginner friendly and easy to follow. I didn't go too far off the beaten track here as PCBs are definitely not where I shine but I hope to make up for that on the software and CAD side through my game, launcher and console design. Actually I suppose I could create a CAD case for my controller too, I'll try work on that next week alongside the launcher since I have a TON of time after being done with my prelims and birthday celebrations but the controller should be in a working state. Also, I saw a lot of people give up on this event but I hope it still continues right up until the end of week 4, I think unfortunately too many people found working on a PCB this week too difficult which is fair enough. But yeah I'm super excited for week 3 and having a chance to work on the launcher because I have so many ideas and it's going to be such a fun project to work on - see you next week! :)
+
+Here are some pictures of my controller:
