@@ -1,0 +1,92 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4gklhxta4uwl"]
+
+[ext_resource type="Texture2D" uid="uid://dp7ifvpan8bsb" path="res://Zelda Starfall.jpg" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://dq2khwox44n0" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="AudioStream" uid="uid://bt7utvy7vsqqm" path="res://The Orchards.ogg" id="1_ig7tw"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h2yge")
+
+[node name="BackgroundTexture" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_0xm2m")
+expand_mode = 5
+
+[node name="BgMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_ig7tw")
+autoplay = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="ColorRect" type="ColorRect" parent="ScrollContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="ColorRect2" type="ColorRect" parent="ScrollContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="ColorRect3" type="ColorRect" parent="ScrollContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="ColorRect4" type="ColorRect" parent="ScrollContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="ColorRect5" type="ColorRect" parent="ScrollContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="ColorRect6" type="ColorRect" parent="ScrollContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="ColorRect7" type="ColorRect" parent="ScrollContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -41.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 45
+theme_override_constants/margin_right = 50
+
+[node name="Time" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "17:42"

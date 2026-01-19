@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://bewv5gaj3f5x1"]
+
+[ext_resource type="Script" uid="uid://d240ndw3ht2le" path="res://gameNode.gd" id="1_yh25y"]
+
+[node name="GameNode" type="TextureButton"]
+custom_minimum_size = Vector2(200, 200)
+offset_right = 40.0
+offset_bottom = 40.0
+stretch_mode = 0
+script = ExtResource("1_yh25y")
+
+[node name="GameName" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -78.5
+offset_top = -30.0
+offset_right = 78.5
+offset_bottom = -7.0
+grow_horizontal = 2
+text = "Flynn's Shenanigans"
+horizontal_alignment = 1
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
