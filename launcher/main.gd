@@ -4,12 +4,12 @@ var gameNode = preload("res://gameNode.tscn")
 
 var games = [
 	{
-		gameName = "Flynn's Shenanigans",
+		gameName = "Settings",
 		image = "icon.svg",
 	},
 	{
-		gameName = "Idk",
-		image = "icon.svg",
+		gameName = "Flynn's Shenanigans",
+		image = "images/Flynns shenanigans.png",
 	},
 	{
 		gameName = "Yes why not",
@@ -50,6 +50,9 @@ func _ready() -> void:
 	get_node("GameListMargin/ScrollContainer/HBoxContainer/1").scale = Vector2(1.5, 1.5)
 	get_node("GameListMargin/ScrollContainer/HBoxContainer/1").z_index = 1
 	get_node("GameListMargin/ScrollContainer/HBoxContainer/1").grab_focus.call_deferred()
+	$StartupSFX.play()
+	await $StartupSFX.finished
+	$BgMusic.play()
 
 
 func _process(_delta: float) -> void:

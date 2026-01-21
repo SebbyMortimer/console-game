@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bt7utvy7vsqqm"
+path="res://.godot/imported/The Orchards.ogg-031401d128f7cc5da0f3f6dc34c23321.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/The Orchards.ogg"
+dest_files=["res://.godot/imported/The Orchards.ogg-031401d128f7cc5da0f3f6dc34c23321.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
