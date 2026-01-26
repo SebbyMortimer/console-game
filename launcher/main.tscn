@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://c4gklhxta4uwl"]
 
-[ext_resource type="Texture2D" uid="uid://dp7ifvpan8bsb" path="res://Zelda Starfall.jpg" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://dp7ifvpan8bsb" path="res://images/backgrounds/Zelda Starfall.jpg" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://dq2khwox44n0" path="res://main.gd" id="1_h2yge"]
-[ext_resource type="AudioStream" uid="uid://bt7utvy7vsqqm" path="res://audio/The Orchards.ogg" id="1_ig7tw"]
+[ext_resource type="AudioStream" uid="uid://bijvjkhr8852s" path="res://audio/Zelda's Lullaby.ogg" id="3_1bvp3"]
 [ext_resource type="AudioStream" uid="uid://dfg0l4wvcwqs5" path="res://audio/startup.ogg" id="4_lquwl"]
 
 [node name="Main" type="Control"]
@@ -25,7 +25,7 @@ texture = ExtResource("1_0xm2m")
 expand_mode = 5
 
 [node name="BgMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("1_ig7tw")
+stream = ExtResource("3_1bvp3")
 
 [node name="StartupSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_lquwl")
@@ -83,3 +83,38 @@ theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 32
 text = "Press Ⓐ to start"
 horizontal_alignment = 1
+
+[node name="Themes" type="ColorRect" parent="."]
+visible = false
+z_index = 4096
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.6854706, 0.7034791, 0.86548316, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Themes"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Themes/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Themes"
+horizontal_alignment = 1
+
+[node name="ItemList" type="ItemList" parent="Themes/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+item_count = 3
+item_0/text = "Zelda"
+item_1/text = "Skylanders"
+item_2/text = "Tearaway Unfolded"
+
+[connection signal="item_activated" from="Themes/VBoxContainer/ItemList" to="." method="_on_item_list_item_activated"]

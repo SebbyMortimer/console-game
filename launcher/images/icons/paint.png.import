@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dp7ifvpan8bsb"
-path="res://.godot/imported/Zelda Starfall.jpg-f58ed2a8ada8b6072200247aca39c39e.ctex"
+uid="uid://bsw7qili0un3i"
+path="res://.godot/imported/paint.png-358fcd7377c486cfedbe2219bd1f5fdb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Zelda Starfall.jpg"
-dest_files=["res://.godot/imported/Zelda Starfall.jpg-f58ed2a8ada8b6072200247aca39c39e.ctex"]
+source_file="res://images/icons/paint.png"
+dest_files=["res://.godot/imported/paint.png-358fcd7377c486cfedbe2219bd1f5fdb.ctex"]
 
 [params]
 

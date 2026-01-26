@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bijvjkhr8852s"
+path="res://.godot/imported/Zelda's Lullaby.ogg-74169c8e0aab260078f538246c48ee3a.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/Zelda's Lullaby.ogg"
+dest_files=["res://.godot/imported/Zelda's Lullaby.ogg-74169c8e0aab260078f538246c48ee3a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

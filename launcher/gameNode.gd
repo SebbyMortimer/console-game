@@ -13,7 +13,3 @@ func _on_focus_exited() -> void:
 	tween.tween_property(self, "scale", Vector2(1, 1), 0.1)
 	z_index = 0
 	$GameName.visible = false
-
-
-func _on_pressed() -> void:
-	print("Starting " + $GameName.text + "...")

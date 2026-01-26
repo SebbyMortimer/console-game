@@ -21,9 +21,9 @@ offset_top = -30.0
 offset_right = 78.5
 offset_bottom = -7.0
 grow_horizontal = 2
+theme_override_constants/outline_size = 3
 text = "Flynn's Shenanigans"
 horizontal_alignment = 1
 
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
 [connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
-[connection signal="pressed" from="." to="." method="_on_pressed"]
