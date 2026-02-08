@@ -127,3 +127,6 @@ Yeah I'm really annoyed with myself, I wanted to spend a lot of time working on 
 One other thing I forgot I changed is that when you start the launcher it selects the first game, because you're more likely to click on the game than themes.
 
 https://github.com/user-attachments/assets/be26d752-51c4-48e3-a396-196528cd6663
+
+## Week 4: The Console
+
