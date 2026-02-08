@@ -130,3 +130,9 @@ https://github.com/user-attachments/assets/be26d752-51c4-48e3-a396-196528cd6663
 
 ## Week 4: The Console
 
+I wasn't too sure what to do for the console so what I did was I designed the CAD model for it, leaving space for a raspberry pi 5 and including a bit of leeway so that it slots in nicely. I have some really nice silk gradient filament that goes from orange to rose gold that I'll use for printing the case and then I'll probably print the controller case out of black because the contrast goes quite well together. I've also included a little cutout at the back (that my printer will hopefully be able to bridge) that'll let the power cable out through the back.
+
+|Case|Top|
+|---|---|
+|<img width="1060" height="809" alt="image" src="https://github.com/user-attachments/assets/8b34f77e-f618-49cd-adf3-ee8272fa5131" />|<img width="1151" height="812" alt="image" src="https://github.com/user-attachments/assets/1b6f1dde-923a-44fe-955d-7970c102ff69" />|
+
